@@ -1,0 +1,104 @@
+# Load postgres extension
+#INSTALL postgres;
+LOAD postgres;
+
+# Create connection with PostgreSQL Database
+CREATE SECRET (
+      TYPE POSTGRES,
+      HOST '127.0.0.1',
+      PORT 5432,
+      DATABASE imdb,
+      USER 'postgres',
+      PASSWORD 'fzj@0829'
+  );
+
+ATTACH '' AS postgres_db (TYPE POSTGRES);
+
+# Create table in PostgresSQL through the connection
+CREATE TABLE postgres_db.name_basics (
+      id VARCHAR,
+      name VARCHAR,
+      birth_year INT,
+      death_year INT,
+      primary_profession VARCHAR,
+      known_for_titles VARCHAR
+  );
+
+CREATE TABLE postgres_db.title_basics (
+        title_id VARCHAR PRIMARY KEY,
+        type VARCHAR,
+        primary_title VARCHAR,
+        original_title VARCHAR,
+        is_adult INT,
+        start_year INT,
+        end_year INT,
+        runtime_minutes INT,
+        genres VARCHAR
+  );
+
+CREATE TABLE postgres_db.title_akas (
+        title_id VARCHAR,
+        ordering INT,
+        title VARCHAR,
+        region VARCHAR,
+        language VARCHAR,
+        types VARCHAR,
+        attributes VARCHAR,
+        is_originaltitle INT
+  );
+
+CREATE TABLE postgres_db.title_crew (
+       title_id VARCHAR PRIMARY KEY,
+       directors VARCHAR,
+       writers VARCHAR
+  );
+
+CREATE TABLE postgres_db.title_ratings(
+        title_id VARCHAR PRIMARY KEY,
+        average_rating FLOAT,
+        num_votes INT
+  );
+
+ CREATE TABLE postgres_db.title_principals (
+          title_id VARCHAR,
+          ordering INT,
+          name_id VARCHAR,
+          category VARCHAR,
+          job VARCHAR,
+          characters VARCHAR
+  );
+
+ CREATE TABLE postgres_db.title_episode(
+         title_id VARCHAR PRIMARY KEY,
+         sub_id VARCHAR,
+         season_number INT,
+         episode_number INT
+  );
+
+# Verify the existence of the table in Postgres
+#SHOW ALL TABLES;
+SELECT * FROM postgres_db.name_basics;
+
+# Copy from DuckDB to Postgres
+INSERT INTO postgres_db.name_basics
+  SELECT * FROM name_basics;
+
+INSERT INTO postgres_db.title_basics
+    SELECT * FROM title_basics;
+
+INSERT INTO postgres_db.title_akas
+    SELECT * FROM title_akas;
+
+INSERT INTO postgres_db.title_crew
+    SELECT * FROM title_crew;
+
+INSERT INTO postgres_db.title_ratings
+    SELECT * FROM title_ratings;
+
+INSERT INTO postgres_db.title_principals
+    SELECT * FROM title_principals;
+
+INSERT INTO postgres_db.title_episode
+    SELECT * FROM title_episode;
+
+#DROP TABLE postgres_db.name_basics;
