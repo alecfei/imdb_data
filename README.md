@@ -13,7 +13,7 @@ Data analysis and visualisation using SQL and PowerBI?
 
 ## 4. Data analysis
 
-## 5. Visualisation
+## 5. Visualisation using Gnuplot
 
 
 
@@ -24,3 +24,4 @@ Data analysis and visualisation using SQL and PowerBI?
 - [Youplot](https://github.com/red-data-tools/YouPlot)
 - [DuckDB](https://duckdb.org/docs/api/overview)
 - [PostgreSQL](https://www.postgresql.org/)
+- [Gnuplot](http://www.gnuplot.info/)
