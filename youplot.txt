@@ -1,6 +1,6 @@
 ./duckdb movie.duckdb -s "COPY (SELECT titleType, count(titleType) AS total_counts FROM title_basics GROUP BY 1 ORDER BY 2 DESC) TO '/dev/stdout' WITH (format 'csv', header)"   | uplot bar -d, -H -t "Type Counts"
 
-./duckdb movie.duckdb -s "COPY (SELECT startYear AS year, COUNT(titleType) AS 'numbers of productions' FROM title_basics WHERE titleType = 'tvMovie' AND startYear IS NOT NULL GROUP BY startYear) TO '/dev/stdout' WITH (format 'csv', header)" | uplot line -d, -w 65 -h 25 -t "Movie Production Changes Over the Years" --xlim 1920,2026 --ylim 0,4000
+./duckdb movie.duckdb -s "COPY (SELECT startYear AS year, COUNT(titleType) AS 'numbers of productions' FROM title_basics WHERE titleType = 'tvMovie' AND startYear IS NOT NULL GROUP BY startYear) TO '/dev/stdout' WITH (format 'csv', header)" | uplot line -d, -w 55 -h 15 -t "Movie Production Changes Over the Years" --xlim 1920,2026 --ylim 0,4000
 
 ./duckdb movie.duckdb -s "COPY (SELECT averageRating FROM title_ratings) TO '/dev/stdout' WITH (format 'csv', header)" | uplot hist --nbins 20 -c blue --title "Distribution of the Averageratings"
 

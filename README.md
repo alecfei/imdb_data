@@ -30,6 +30,7 @@ SELECT * FROM your_tables;
 ```
 
 ## Quick visualisation using Youplot
+### title type counts
 ```
 ./duckdb your_database.duckdb -s \
 "COPY (SELECT titleType, count(titleType) AS total_counts \
@@ -39,6 +40,19 @@ TO '/dev/stdout' WITH (format 'csv', header)"  \
 ```
 <p align="center">
   <img alt="barplot" src="barplot.png">
+</p>
+
+### movie production trend
+```
+./duckdb your_database.duckdb -s \
+"COPY (SELECT startYear AS year, COUNT(titleType) AS 'numbers of productions' \
+FROM your_table WHERE titleType = 'tvMovie' AND startYear IS NOT NULL \
+GROUP BY startYear) TO '/dev/stdout' WITH (format 'csv', header)" \
+| uplot line -d, -w 55 -h 15 -t "Movie Production Changes Over the Years" \
+--xlim 1920,2026 --ylim 0,4000 -c blue
+```
+<p align="center">
+  <img alt="barplot" src="lineplot.png">
 </p>
 
 ## Data migration from DuckDB to PostgreSQL
