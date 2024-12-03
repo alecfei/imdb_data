@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="images/Flowchart.png">
+  <img alt="flowchart" src="images/Flowchart.png">
   <hr>
 
 Information courtesy of
@@ -39,7 +39,7 @@ TO '/dev/stdout' WITH (format 'csv', header)"  \
 | uplot bar -d, -H -c blue -t "Counts of the Title Types"
 ```
 <p align="center">
-  <img src="images/barplot.png">
+  <img alt="barplot" src="images/barplot.png">
 </p>
 
 ### movie production trend
@@ -52,11 +52,11 @@ GROUP BY startYear) TO '/dev/stdout' WITH (format 'csv', header)" \
 --xlim 1920,2026 --ylim 0,4000 -c blue
 ```
 <p align="center">
-  <img src="images/lineplot.png">
+  <img alt="lineplot" src="images/lineplot.png">
 </p>
 
 ## Data migration from DuckDB to PostgreSQL
-excute
+
 
 ## Data analysis
 
