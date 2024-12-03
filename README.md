@@ -15,7 +15,10 @@ Used with permission.
 
 ```
 CREATE TABLE your_tables AS
-  SELECT * FROM read_csv('/your_directory/*.*.tsv', delim='\t', null_padding=true, sample_size=-1);
+  SELECT * FROM read_csv('/your_directory/*.*.tsv',
+    delim='\t',
+    null_padding=true,
+    sample_size=-1);
 ```
 
 ```
@@ -28,7 +31,11 @@ SELECT * FROM your_tables;
 
 ## Quick visualisation using Youplot
 ```
-./duckdb your_database.duckdb -s "COPY (SELECT titleType, count(titleType) AS total_counts FROM yout_table GROUP BY 1 ORDER BY 2 DESC) TO '/dev/stdout' WITH (format 'csv', header)"   | uplot bar -d, -H -c blue -t "Counts of the Title Types"
+./duckdb your_database.duckdb -s \
+"COPY (SELECT titleType, count(titleType) AS total_counts \
+FROM your_table GROUP BY 1 ORDER BY 2 DESC) \
+TO '/dev/stdout' WITH (format 'csv', header)"  \
+| uplot bar -d, -H -c blue -t "Counts of the Title Types"
 ```
 <p align="center">
   <img alt="barplot" src="barplot.png">
