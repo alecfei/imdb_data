@@ -2,18 +2,22 @@
   <img src="Flowchart.png">
   <hr>
 
-Data analysis and visualisation using SQL and PowerBI?
+Data analysis and visualisation using SQL and Gnuplot
 </div>
 
-## 1. Data import using DuckDB
+## Data import using DuckDB
+Create database in DuckDB
+```
+./duckdb movie.duckdb
+```
 
-## 2. Quick visualisation using Youplot
+## Quick visualisation using Youplot
 
-## 3. Data migration from DuckDB to PostgreSQL
+## Data migration from DuckDB to PostgreSQL
 
-## 4. Data analysis
+## Data analysis
 
-## 5. Visualisation using Gnuplot
+## Visualisation using Gnuplot
 
 
 
