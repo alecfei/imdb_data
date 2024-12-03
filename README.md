@@ -58,13 +58,15 @@ GROUP BY startYear) TO '/dev/stdout' WITH (format 'csv', header)" \
 ### average rating distribution
 ```
 ./duckdb your_database.duckdb -s \
-"COPY (SELECT averageRating FROM title_ratings) \
+"COPY (SELECT averageRating FROM your_table) \
 TO '/dev/stdout' WITH (format 'csv', header)" \
 | uplot hist --nbins 20 -c blue --title "Distribution of the Averageratings"
 ```
 <p align="center">
   <img alt="lineplot" src="images/histgram.png">
 </p>
+
+### 
 
 ## Data migration from DuckDB to PostgreSQL
 
