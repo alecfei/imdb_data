@@ -66,7 +66,38 @@ TO '/dev/stdout' WITH (format 'csv', header)" \
   <img alt="lineplot" src="images/histgram.png">
 </p>
 
-### 
+### running time distribution
+- ***overall***
+
+```
+./duckdb your_database.duckdb -s "
+COPY (
+    SELECT 
+        runtimeMinutes
+    FROM your_table 
+    WHERE runtimeMinutes IS NOT NULL) TO '/dev/stdout' WITH (format 'csv', header)
+" | uplot boxplot -H -d, -t 'Overall Running Time Distribution' 
+-c blue --xlabel 'minutes' --xlim 0,150
+```
+**V.S.**
+
+- ***movie***
+```
+./duckdb your_database.duckdb -s "
+COPY (
+    SELECT 
+        CASE WHEN titleType = 'movie' THEN runtimeMinutes ELSE NULL END AS movie,
+    FROM your_table 
+    WHERE runtimeMinutes IS NOT NULL
+) TO '/dev/stdout' WITH (format 'csv', header)
+" | cut -f1 -d, | uplot boxplot -H -d, -t 'Movie Running Time Distribution' 
+-c blue --xlabel 'minutes' --xlim 0,150
+```
+
+<p align="center">
+  <img alt="lineplot" src="images/overall_runningtime_dist.png">
+  <img alt="lineplot" src="images/movie_runningtime_dist.png">
+</p>
 
 ## Data migration from DuckDB to PostgreSQL
 
