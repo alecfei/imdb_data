@@ -18,7 +18,7 @@ Used with permission.
 7. [References](#references)
 
 ## Introduction
-In this project, 
+In this project, the data released by IMDb, an extremely popular source source for movie, TV and celebrity content, were used to analyse 
 
 ## Import data into DuckDB
 ```
@@ -152,7 +152,7 @@ CREATE TABLE postgres_db.your_tables (
 ### Verify the existence of the table in Postgres
 ```
 #SHOW ALL TABLES;
-SELECT * FROM postgres_db.yout_tables;
+SELECT * FROM postgres_db.your_tables;
 ```
 
 ### Copy from DuckDB to Postgres
