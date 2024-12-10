@@ -1,12 +1,24 @@
 <div align="center">
   <img alt="flowchart" src="images/Flowchart.png">
-  <hr>
 
 Information courtesy of
 IMDb
 (https://www.imdb.com).
 Used with permission.
 </div>
+<hr>
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Import data into DuckDB](#import-data-into-duckdb)
+3. [Quick Visualization with YouPlot](#quick-visualisation-using-youplot)
+4. [Data Migration to PostgreSQL](#data-migration-from-duckdb-to-postgresql)
+5. [Data Analysis in PostgreSQL](#data-analysis-in-postgresql)
+6. [Visualisation using Gnuplot](#visualisation-using-gnuplot)
+7. [References](#references)
+
+## Introduction
+In this project, 
 
 ## Import data into DuckDB
 ```
@@ -67,8 +79,6 @@ TO '/dev/stdout' WITH (format 'csv', header)" \
 </p>
 
 ### running time distribution
-- ***overall***
-
 ```
 ./duckdb your_database.duckdb -s "
 COPY (
@@ -79,9 +89,7 @@ COPY (
 " | uplot boxplot -H -d, -t 'Overall Running Time Distribution' 
 -c blue --xlabel 'minutes' --xlim 0,150
 ```
-**V.S.**
 
-- ***movie***
 ```
 ./duckdb your_database.duckdb -s "
 COPY (
@@ -94,15 +102,66 @@ COPY (
 -c blue --xlabel 'minutes' --xlim 0,150
 ```
 
+
+<p align='center' style="font-size:18px; font-weight:bold;">  overall  V.S.  movie </p>
+
 <p align="center">
   <img alt="lineplot" src="images/overall_runningtime_dist.png">
   <img alt="lineplot" src="images/movie_runningtime_dist.png">
 </p>
 
+
+
 ## Data migration from DuckDB to PostgreSQL
 
+### Access database through DuckDB CLI
+```
+./duckdb your_databse.duckdb
+```
 
-## Data analysis
+### Load postgres extension
+```
+#INSTALL postgres;
+LOAD postgres;
+```
+
+### Create connection with PostgreSQL Database
+```
+CREATE SECRET (
+      TYPE POSTGRES,
+      HOST '127.0.0.1',
+      PORT 5432,
+      DATABASE your_database,
+      USER 'your_user',
+      PASSWORD 'your_password'
+  );
+
+ATTACH '' AS postgres_db (TYPE POSTGRES);
+```
+
+### Create table in PostgresSQL through the connection
+```
+CREATE TABLE postgres_db.your_tables (
+      *** VARCHAR,
+      *** VARCHAR,
+      *** INT,
+      *** INT
+);
+```
+
+### Verify the existence of the table in Postgres
+```
+#SHOW ALL TABLES;
+SELECT * FROM postgres_db.yout_tables;
+```
+
+### Copy from DuckDB to Postgres
+```
+INSERT INTO postgres_db.your_tables
+  SELECT * FROM your_tables;
+```
+
+## Data analysis in PostgreSQL
 
 ## Visualisation using Gnuplot
 
@@ -110,7 +169,7 @@ COPY (
 
 
 
-#### References
+## References
 [IMDb Non-Commercial Datasets](https://developer.imdb.com/non-commercial-datasets/) \
 [Youplot](https://github.com/red-data-tools/YouPlot) \
 [DuckDB](https://duckdb.org/docs/api/overview) \
