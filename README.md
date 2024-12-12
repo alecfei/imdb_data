@@ -18,7 +18,8 @@ Used with permission.
 7. [References](#references)
 
 ## Introduction
-In this project, the data released by IMDb, an extremely popular source source for movie, TV and celebrity content, were used to analyse 
+In this project, the data released by IMDb, an extremely popular source for movie, TV and celebrity content, were analysed using **SQL** (DuckDB and PostgreSQL). 
+Visualisations were presented by Gnuplot and *Youplot* (an interesting and convenient tool for visualing via DuckDB CLI).
 
 ## Import data into DuckDB
 ```
