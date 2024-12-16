@@ -10,10 +10,10 @@ Used with permission.
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Import data into DuckDB](#import-data-into-duckdb)
-3. [Quick Visualization with YouPlot](#quick-visualisation-using-youplot)
+2. [Import Data into DuckDB](#import-data-into-duckdb)
+3. [Quick Visualisation with YouPlot](#quick-visualisation-using-youplot)
 4. [Data Migration to PostgreSQL](#data-migration-from-duckdb-to-postgresql)
-5. [Data Analysis in PostgreSQL](#data-analysis-in-postgresql)
+5. [Data Transforamtion and Analysis in PostgreSQL](#data-analysis-in-postgresql)
 6. [Visualisation using Gnuplot](#visualisation-using-gnuplot)
 7. [References](#references)
 
@@ -162,7 +162,7 @@ INSERT INTO postgres_db.your_tables
   SELECT * FROM your_tables;
 ```
 
-## Data analysis in PostgreSQL
+## Data transformation and analysis in PostgreSQL
 
 ## Visualisation using Gnuplot
 
