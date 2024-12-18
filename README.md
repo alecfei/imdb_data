@@ -19,7 +19,7 @@ Used with permission.
 
 ## Introduction
 In this project, the data released by IMDb, an extremely popular source for movie, TV and celebrity content, were analysed using **SQL** (DuckDB and PostgreSQL). 
-Visualisations were presented by Gnuplot and *Youplot* (an interesting and convenient tool for visualing via DuckDB CLI).
+Visualisations were presented by **Gnuplot** and *Youplot* (an interesting and convenient tool for visualing via DuckDB CLI).
 
 ## Import data into DuckDB
 ```
@@ -163,6 +163,9 @@ INSERT INTO postgres_db.your_tables
 ```
 
 ## Data transformation and analysis in PostgreSQL
+### Transforamtion of data related to names
+In the data related to names, the profession and known_for_titles information are concatenated together. To help analysis, the information are split and inserted
+into newly created tables, seen [name transformation](name_transformation.sql).
 
 ## Visualisation using Gnuplot
 
