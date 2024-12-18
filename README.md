@@ -167,6 +167,11 @@ INSERT INTO postgres_db.your_tables
 In the data related to names, the profession and known_for_titles information are concatenated together. To help analysis, the information are split and inserted
 into newly created tables, seen [name transformation](name_transformation.sql).
 
+<p align='center' style="font-size:16px; font-weight:bold;">  Name info analysis after transformation   </p>
+<p align="center">
+  <img alt="anne_hathaway" src="images/anne_hathaway.png">
+</p>
+
 ## Visualisation using Gnuplot
 
 
