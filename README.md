@@ -163,18 +163,29 @@ INSERT INTO postgres_db.your_tables
 ```
 
 ## Data transformation and analysis in PostgreSQL
-### Transforamtion of data related to names
-In the data related to names, the profession and known_for_titles information are concatenated together. To help analysis, the information are split and inserted
-into newly created tables, seen [name transformation](name_transformation.sql).
+### Data transforamtion
+- [name transformation](name_transformation.sql): split the professions and the known-for titles of the people into
+new tables
 
 <p align='center' style="font-size:16px; font-weight:bold;">  Name info analysis after transformation   </p>
 <p align="center">
   <img alt="anne_hathaway" src="images/anne_hathaway.png">
 </p>
 
+- [genre transformation](genre_transformation.sql): split the genres into new table
+
+- [crew member transformation](crewmember_transformation.sql): split the directors and writers of the programs 
+into new tables
+
+
+### Data analysis
+
 ## Visualisation using Gnuplot
 
-
+<p align='center' style="font-size:16px; font-weight:bold;">  1. Count of different professions  </p>
+<p align="center">
+  <img alt="profession_type" src="images/gnuplot_barplot.png">
+</p>
 
 
 
