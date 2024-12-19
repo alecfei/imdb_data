@@ -6,6 +6,7 @@ IMDb
 (https://www.imdb.com).
 Used with permission.
 </div>
+
 <hr>
 
 ## Table of Contents
@@ -104,7 +105,9 @@ COPY (
 ```
 
 
-<p align='center' style="font-size:18px; font-weight:bold;">  overall  V.S.  movie </p>
+<p align='center' style="font-size:18px">
+  <strong>overall  V.S.  movie</strong>
+</p>
 
 <p align="center">
   <img alt="lineplot" src="images/overall_runningtime_dist.png">
@@ -167,7 +170,10 @@ INSERT INTO postgres_db.your_tables
 - [name transformation](name_transformation.sql): split the professions and the known-for titles of the people into
 new tables
 
-<p align='center' style="font-size:16px; font-weight:bold;">  Name info analysis after transformation   </p>
+<p align='center' style="font-size:16px">
+  <strong>Name info analysis after transformation</strong> 
+</p>
+
 <p align="center">
   <img alt="anne_hathaway" src="images/anne_hathaway.png">
 </p>
@@ -181,7 +187,10 @@ new tables
 
 ## Visualisation using Gnuplot
 
-<p align='center' style="font-size:16px"><strong>1. Count of different professions</strong></p>
+<p align='center' style="font-size:16px">
+  <strong>1. Count of different professions</strong>
+</p>
+
 <p align="center">
   <img alt="profession_type" src="images/gnuplot_barplot.png">
 </p>
