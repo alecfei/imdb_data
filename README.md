@@ -174,11 +174,10 @@ new tables
 
 - [genre transformation](genre_transformation.sql): split the genres into new table
 
-- [crew member transformation](crewmember_transformation.sql): split the directors and writers of the programs 
-into new tables
+- [crew member transformation](crewmember_transformation.sql): split the directors and writers of the programs into new tables
 
 
-### Data analysis
+### Data analysis [link](data_analysis.sql)
 
 ## Visualisation using Gnuplot
 
