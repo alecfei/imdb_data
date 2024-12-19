@@ -69,8 +69,8 @@ CREATE TABLE postgres_db.title_ratings(
   );
 
  CREATE TABLE postgres_db.title_episode(
-         title_id VARCHAR PRIMARY KEY,
-         sub_id VARCHAR,
+         episode_title_id VARCHAR PRIMARY KEY,
+         series_title_id VARCHAR,
          season_number INT,
          episode_number INT
   );
