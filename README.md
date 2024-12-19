@@ -181,7 +181,7 @@ new tables
 
 ## Visualisation using Gnuplot
 
-<p align='center' style="font-size:16px; font-weight:bold;">  1. Count of different professions  </p>
+<p align='center' style="font-size:16px"><strong>1. Count of different professions</strong></p>
 <p align="center">
   <img alt="profession_type" src="images/gnuplot_barplot.png">
 </p>
