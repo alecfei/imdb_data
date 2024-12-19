@@ -177,7 +177,7 @@ new tables
 - [crew member transformation](crewmember_transformation.sql): split the directors and writers of the programs into new tables
 
 
-### Data analysis [link](data_analysis.sql)
+### [Data analysis](data_analysis.sql)
 
 ## Visualisation using Gnuplot
 
