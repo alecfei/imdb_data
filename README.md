@@ -188,7 +188,7 @@ new tables
 ## Visualisation using Gnuplot
 
 <p align='center' style="font-size:16px">
-  <strong>1. Top 15 professions</strong>
+  <strong>1. Profession analysis</strong>
 </p>
 
 <p align="center">
