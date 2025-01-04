@@ -1,0 +1,24 @@
+set terminal qt size 1280,720 enhanced font 'Arial,14'
+
+# Set title and labels
+set title "Top 10 Professions by Count" font ",16"
+set xlabel "Professions"
+set ylabel "Count"
+
+# Customize x-axis labels
+set xtics rotate by -45
+set style fill solid 0.8
+set boxwidth 0.5
+
+# Enable grid for better readability
+set grid ytics
+
+# Format Y-axis to use thousands grouping (commas)
+set format y "%'0.0f"  # Use commas for thousands (e.g., 1,000,000)
+
+# Specify comma as the separator for CSV files
+set datafile separator ","
+
+# Plot the data
+plot 'data.csv' using 2:xtic(1) with boxes lc rgb "skyblue" title "Count", \
+     '' using 0:2:(sprintf("%.3f%%", $3)) with labels offset 0,1 notitle
