@@ -1,3 +1,20 @@
+/**
+In this section, we focus on analyse 
+
+
+**/
+SELECT 
+    profession, 
+    COUNT(profession) AS count, 
+    ROUND((COUNT(profession) * 1.0 / (SELECT COUNT(DISTINCT name_id) FROM public.name_professions)) * 100, 3) AS percentage
+FROM public.name_professions
+GROUP BY profession
+ORDER BY count DESC
+LIMIT 10
+;
+
+
+
 -- Analyse series programs
 SELECT
     t.episode_title_id,
@@ -20,4 +37,11 @@ SELECT tr.*, tb.type, tb.original_title, tb.start_year, tb.runtime_minutes, tb.g
 FROM public.title_ratings tr
 JOIN public.title_basics tb ON tr.title_id = tb.title_id
 WHERE num_votes = (SELECT MAX(num_votes) FROM public.title_ratings)
+;
+
+SELECT tr.*, tb.type, tb.original_title, tb.start_year, tb.runtime_minutes, tb.genres
+FROM public.title_ratings tr
+JOIN public.title_basics tb ON tr.title_id = tb.title_id
+ORDER BY num_votes DESC
+LIMIT 10
 ;
