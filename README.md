@@ -192,7 +192,7 @@ new tables
 </p>
 
 <p align="center">
-  <img alt="profession_type" src="images/histgram_profession.png">
+  <img alt="profession_count" src="images/barchart_profession.png">
 </p>
 
 
