@@ -1,17 +1,20 @@
 /**
-In this section, we focus on analyse 
-
-
+In this section, we focus on analyse the people that have worked in
+the movie/TV industires and their roles
 **/
+
+-- 1. The top 10 professions in the industry and its ratio among the whole population
 SELECT 
     profession, 
     COUNT(profession) AS count, 
-    ROUND((COUNT(profession) * 1.0 / (SELECT COUNT(DISTINCT name_id) FROM public.name_professions)) * 100, 3) AS percentage
+    ROUND((COUNT(profession) * 1.0 / (SELECT COUNT(DISTINCT name_id) FROM public.name_professions)) * 100, 3)::TEXT || '%' AS percentage
 FROM public.name_professions
 GROUP BY profession
 ORDER BY count DESC
-LIMIT 10
-;
+LIMIT 10;
+
+--2 
+
 
 
 

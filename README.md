@@ -170,14 +170,6 @@ INSERT INTO postgres_db.your_tables
 - [name transformation](name_transformation.sql): split the professions and the known-for titles of the people into
 new tables
 
-<p align='center' style="font-size:16px">
-  <strong>Name info analysis after transformation</strong> 
-</p>
-
-<p align="center">
-  <img alt="anne_hathaway" src="images/anne_hathaway.png">
-</p>
-
 - [genre transformation](genre_transformation.sql): split the genres into new table
 
 - [crew member transformation](crewmember_transformation.sql): split the directors and writers of the programs into new tables
