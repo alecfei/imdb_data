@@ -1,3 +1,5 @@
+1. 
+
 set terminal qt size 1280,720 enhanced font 'Arial,14'
 
 # Set title and labels
@@ -22,3 +24,35 @@ set datafile separator ","
 # Plot the data
 plot 'data.csv' using 2:xtic(1) with boxes lc rgb "skyblue" title "Count", \
      '' using 0:2:(sprintf("%.3f%%", $3)) with labels offset 0,1 notitle
+
+
+2.
+
+# Set the terminal type to 'qt'
+set terminal qt size 1280,720 enhanced font 'Arial,14'
+
+# Set titles and labels
+set title "Age Distribution"
+set xlabel "Age"
+set ylabel "Frequency"
+
+# Set the bin width for the histogram
+bin_width = 5
+
+# Define the bin function
+bin(x, width) = width * floor(x / width)
+
+# Set the range for the x-axis
+set xrange [0:130]
+
+# Specify the delimiter (comma for CSV)
+set datafile separator ","
+
+# Set the boxwidth to slightly less than the bin width for better spacing
+set boxwidth 0.8 * bin_width
+
+# Set style for solid fill and color (skyblue)
+set style fill solid 0.9 border -1  # 0.9 = slight transparency, -1 = no border
+
+# Plot the histogram without a label
+plot 'data_age.csv' using (bin($2, bin_width)):(1) smooth frequency with boxes lc rgb "skyblue" notitle
