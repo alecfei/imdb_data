@@ -187,6 +187,14 @@ new tables
   <img alt="profession_count" src="images/barchart_profession.png">
 </p>
 
+<p style="font-size:16px">
+  <strong>2. Age distribution </strong>
+</p>
+
+<p align="center">
+  <img alt="age_distribution" src="images/histogram_age.png">
+</p>
+
 
 
 ## References
