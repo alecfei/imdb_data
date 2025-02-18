@@ -56,3 +56,30 @@ set style fill solid 0.9 border -1  # 0.9 = slight transparency, -1 = no border
 
 # Plot the histogram without a label
 plot 'data_age.csv' using (bin($2, bin_width)):(1) smooth frequency with boxes lc rgb "skyblue" notitle
+
+3.
+# Set terminal and size
+set terminal qt size 1280,720 enhanced font 'Arial,14'
+
+# Set title and labels
+set title "Top 10 Localised Productions" font ",16"
+set xlabel "Production Name"
+set ylabel "Count"
+
+# Customize x-axis labels
+set xtics rotate by -45
+set style fill solid 0.8
+set boxwidth 0.5
+
+# Enable grid for better readability
+set grid ytics
+
+# Set y-axis range explicitly to include all data
+set yrange [0:*] # Automatically scales to include all data
+
+# Specify tab as the separator for the data file
+set datafile separator ","
+
+# Plot the data
+plot 'data_localisation.csv' using 2:xtic(1) with boxes lc rgb "skyblue" title "Count", \
+     '' using 0:2:(sprintf("%d", $2)) with labels offset 0,1 font ",12" notitle

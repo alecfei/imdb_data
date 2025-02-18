@@ -195,6 +195,13 @@ new tables
   <img alt="age_distribution" src="images/histogram_age.png">
 </p>
 
+<p style="font-size:16px">
+  <strong>2. Localised counts </strong>
+</p>
+
+<p align="center">
+  <img alt="localised_quantity" src="images/barchart_localised.png">
+</p>
 
 
 ## References

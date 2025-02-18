@@ -13,38 +13,40 @@ GROUP BY profession
 ORDER BY count DESC
 LIMIT 10;
 
--- 2. The age distribution of people who worked in the industry, excluding people who are still in
+-- 2. The age distribution of people who worked in the industry, excluding people who are still alive
 SELECT full_name, (death_year - birth_year) as age
 FROM public.name_basics
 WHERE (death_year - birth_year) IS NOT NULL
 ORDER BY age DESC
 
 
--- 3. Top 10 most translated production in history
+-- 3. Top 10 most localisation productions in history
 WITH top_titles AS (
-    SELECT 
-        title_id, 
-        COUNT(title_id) AS localization_count
-    FROM 
-        public.title_akas
-    GROUP BY 
-        title_id
-    ORDER BY 
-        localization_count DESC
+    SELECT ta.title_id, COUNT(DISTINCT ta.region) AS localisation_count
+    FROM public.title_akas ta
+    GROUP BY ta.title_id
+    ORDER BY COUNT(DISTINCT ta.region) DESC
     LIMIT 10
 )
 SELECT 
-    ta.*, 
-    tt.localization_count
-FROM 
-    public.title_akas ta
-JOIN 
-    top_titles tt
-ON 
-    ta.title_id = tt.title_id
---WHERE ta.ordering = 1
-ORDER BY 
-    tt.localization_count DESC;
+    tb.primary_title, 
+    tt.localisation_count
+FROM public.title_basics tb
+JOIN top_titles tt
+	ON tb.title_id = tt.title_id
+ORDER BY tt.localisation_count DESC
+;
+
+/*
+SELECT * FROM public.title_basics tb
+WHERE tb.title_id IN (
+    SELECT ta.title_id
+    FROM public.title_akas ta
+    GROUP BY ta.title_id
+    ORDER BY COUNT(DISTINCT ta.region) DESC
+    LIMIT 10
+)
+*/
 
 -- Analyse series programs
 SELECT
