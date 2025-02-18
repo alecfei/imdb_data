@@ -13,10 +13,38 @@ GROUP BY profession
 ORDER BY count DESC
 LIMIT 10;
 
---2 
+-- 2. The age distribution of people who worked in the industry, excluding people who are still in
+SELECT full_name, (death_year - birth_year) as age
+FROM public.name_basics
+WHERE (death_year - birth_year) IS NOT NULL
+ORDER BY age DESC
 
 
-
+-- 3. Top 10 most translated production in history
+WITH top_titles AS (
+    SELECT 
+        title_id, 
+        COUNT(title_id) AS localization_count
+    FROM 
+        public.title_akas
+    GROUP BY 
+        title_id
+    ORDER BY 
+        localization_count DESC
+    LIMIT 10
+)
+SELECT 
+    ta.*, 
+    tt.localization_count
+FROM 
+    public.title_akas ta
+JOIN 
+    top_titles tt
+ON 
+    ta.title_id = tt.title_id
+--WHERE ta.ordering = 1
+ORDER BY 
+    tt.localization_count DESC;
 
 -- Analyse series programs
 SELECT
