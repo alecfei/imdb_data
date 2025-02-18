@@ -196,7 +196,7 @@ new tables
 </p>
 
 <p style="font-size:16px">
-  <strong>2. Localised counts </strong>
+  <strong>3. Localised counts </strong>
 </p>
 
 <p align="center">
