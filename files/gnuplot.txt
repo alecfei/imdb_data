@@ -87,3 +87,31 @@ set datafile separator ","
 # Plot the data
 plot 'data_localisation.csv' using 2:xtic(1) with boxes lc rgb "skyblue" title "Count", \
      '' using 0:2:(sprintf("%d", $2)) with labels offset 0,1 font ",12" notitle
+
+4.
+# Set terminal and size
+set terminal qt size 1280,720 enhanced font 'Arial,14'
+
+# Set title and labels
+set title "Top 10 Voted Productions and Their Average Ratings" font ",16"
+set xlabel "Production Name"
+set ylabel "Number of Votes"
+
+# Customize x-axis labels
+set xtics rotate by -45
+set style fill solid 0.8
+set boxwidth 0.5
+
+# Enable grid for better readability
+set grid ytics
+
+# Format Y-axis to use thousands grouping (commas)
+set format y "%'0.0f"
+set yrange [0:*]
+
+# Specify tab as the separator for the data file
+set datafile separator ","
+
+# Plot the data
+plot 'data_mostvoted.csv' using 2:xtic(1) with boxes lc rgb "skyblue" notitle, \
+              '' using 0:2:(sprintf("%.1f", $3)) with labels offset 0,0 font ",12" tc rgb "red" notitle

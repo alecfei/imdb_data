@@ -203,6 +203,13 @@ new tables
   <img alt="localised_quantity" src="images/barchart_localised.png">
 </p>
 
+<p style="font-size:16px">
+  <strong>4. Most voted productions </strong>
+</p>
+
+<p align="center">
+  <img alt="most_voted" src="images/barchart_mostvoted.png">
+</p>
 
 ## References
 [IMDb Non-Commercial Datasets](https://developer.imdb.com/non-commercial-datasets/) \

@@ -48,7 +48,15 @@ WHERE tb.title_id IN (
 )
 */
 
--- 4. most voted v.s. best rating
+-- 4. most voted and their average ratings
+SELECT tb.primary_title, tr.num_votes, tr.average_rating
+FROM public.title_ratings tr
+JOIN public.title_basics tb
+	ON tr.title_id = tb.title_id
+ORDER BY tr.num_votes DESC
+LIMIT 10
+;
+
 
 -- Analyse series programs
 SELECT
