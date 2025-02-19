@@ -15,8 +15,6 @@ set boxwidth 0.5
 # Enable grid for better readability
 set grid ytics
 
-set style fill solid 0.9 border -1
-
 # Format Y-axis to use thousands grouping (commas)
 set format y "%'0.0f"  # Use commas for thousands (e.g., 1,000,000)
 
@@ -76,8 +74,6 @@ set boxwidth 0.5
 # Enable grid for better readability
 set grid ytics
 
-set style fill solid 0.9 border -1
-
 # Set y-axis range explicitly to include all data
 set yrange [0:*]
 
@@ -114,4 +110,4 @@ set datafile separator ","
 
 # Plot the data
 plot 'data_mostvoted.csv' using 2:xtic(1) with boxes lc rgb "skyblue" notitle, \
-              '' using 0:2:(sprintf("%.1f", $3)) with labels offset 0,0 font ",14" tc rgb "red" notitle
+              '' using 0:($2/2):(sprintf("%.1f", $3)) with labels font ",12" tc rgb "red" notitle
