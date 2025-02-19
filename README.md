@@ -209,4 +209,5 @@ new tables
 [Youplot](https://github.com/red-data-tools/YouPlot) \
 [DuckDB](https://duckdb.org/docs/api/overview) \
 [PostgreSQL](https://www.postgresql.org/) \
-[Gnuplot](http://www.gnuplot.info/)
+[Gnuplot](http://www.gnuplot.info/) \
+[Country Codes](https://help.imdb.com/article/contribution/other-submission-guides/country-codes/G99K4LFRMSC37DCN?ref_=helpart_nav_6#)
