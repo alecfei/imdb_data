@@ -79,7 +79,7 @@ set grid ytics
 set style fill solid 0.9 border -1
 
 # Set y-axis range explicitly to include all data
-set yrange [0:*] # Automatically scales to include all data
+set yrange [0:*]
 
 # Specify tab as the separator for the data file
 set datafile separator ","
