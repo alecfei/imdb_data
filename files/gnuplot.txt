@@ -15,6 +15,8 @@ set boxwidth 0.5
 # Enable grid for better readability
 set grid ytics
 
+set style fill solid 0.9 border -1
+
 # Format Y-axis to use thousands grouping (commas)
 set format y "%'0.0f"  # Use commas for thousands (e.g., 1,000,000)
 
@@ -73,6 +75,8 @@ set boxwidth 0.5
 
 # Enable grid for better readability
 set grid ytics
+
+set style fill solid 0.9 border -1
 
 # Set y-axis range explicitly to include all data
 set yrange [0:*] # Automatically scales to include all data
