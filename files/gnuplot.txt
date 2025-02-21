@@ -16,19 +16,18 @@ set boxwidth 0.5
 set grid ytics
 
 # Format Y-axis to use thousands grouping (commas)
-set format y "%'0.0f"  # Use commas for thousands (e.g., 1,000,000)
+set format y "%'0.0f"
 
 # Specify comma as the separator for CSV files
 set datafile separator ","
 
 # Plot the data
-plot 'data.csv' using 2:xtic(1) with boxes lc rgb "skyblue" title "Count", \
+plot 'data.csv' using 2:xtic(1) with boxes lc rgb "skyblue" notitle, \
      '' using 0:2:(sprintf("%.3f%%", $3)) with labels offset 0,1 notitle
 
 
 2.
 
-# Set the terminal type to 'qt'
 set terminal qt size 1280,720 enhanced font 'Arial,14'
 
 # Set titles and labels
@@ -42,14 +41,17 @@ bin_width = 5
 # Define the bin function
 bin(x, width) = width * floor(x / width)
 
+# Set the boxwidth to slightly less than the bin width for better spacing
+set boxwidth 0.8 * bin_width
+
 # Set the range for the x-axis
-set xrange [0:130]
+set xrange [0:120]
+
+# Set x-axis tics to appear every 5 units
+set xtics 0, 5, 120
 
 # Specify the delimiter (comma for CSV)
 set datafile separator ","
-
-# Set the boxwidth to slightly less than the bin width for better spacing
-set boxwidth 0.8 * bin_width
 
 # Set style for solid fill and color (skyblue)
 set style fill solid 0.9 border -1  # 0.9 = slight transparency, -1 = no border
@@ -58,7 +60,7 @@ set style fill solid 0.9 border -1  # 0.9 = slight transparency, -1 = no border
 plot 'data_age.csv' using (bin($2, bin_width)):(1) smooth frequency with boxes lc rgb "skyblue" notitle
 
 3.
-# Set terminal and size
+
 set terminal qt size 1280,720 enhanced font 'Arial,14'
 
 # Set title and labels
@@ -81,11 +83,11 @@ set yrange [0:*]
 set datafile separator ","
 
 # Plot the data
-plot 'data_localisation.csv' using 2:xtic(1) with boxes lc rgb "skyblue" title "Count", \
+plot 'data_localisation.csv' using 2:xtic(1) with boxes lc rgb "skyblue" notitle, \
      '' using 0:2:(sprintf("%d", $2)) with labels offset 0,1 font ",12" notitle
 
 4.
-# Set terminal and size
+
 set terminal qt size 1280,720 enhanced font 'Arial,14'
 
 # Set title and labels
@@ -105,9 +107,12 @@ set grid ytics
 set format y "%'0.0f"
 set yrange [0:*]
 
+# Add a custom legend entry for "Average Rating" in red with underline
+set label "[average rating]" at graph 0.98, graph 0.88 right font ",14" tc rgb "red"
+
 # Specify tab as the separator for the data file
 set datafile separator ","
 
 # Plot the data
 plot 'data_mostvoted.csv' using 2:xtic(1) with boxes lc rgb "skyblue" notitle, \
-              '' using 0:($2/2):(sprintf("%.1f", $3)) with labels font ",12" tc rgb "red" notitle
+              '' using 0:($2/2):(sprintf("[%.1f]", $3)) with labels font ",14" tc rgb "red" notitle
