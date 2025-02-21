@@ -166,7 +166,7 @@ INSERT INTO postgres_db.your_tables
 ```
 
 ## Data transformation and analysis in PostgreSQL
-### Data transforamtion
+### Data transformation
 - [name transformation](name_transformation.sql): split the professions and the known-for titles of the people into
 new tables
 
