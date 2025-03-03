@@ -116,3 +116,31 @@ set datafile separator ","
 # Plot the data
 plot 'data_mostvoted.csv' using 2:xtic(1) with boxes lc rgb "skyblue" notitle, \
               '' using 0:($2/2):(sprintf("[%.1f]", $3)) with labels font ",14" tc rgb "red" notitle
+
+5.
+
+set terminal qt size 1280,720 enhanced font 'Arial,14'
+
+# Set title and labels
+set title "Genre Counts" font ",16"
+set xlabel "Genre"
+set ylabel "Count"
+
+# Customize x-axis labels
+set xtics rotate by -45
+set style fill solid 0.8
+set boxwidth 0.5
+
+# Enable grid for better readability
+set grid ytics
+
+# Set axis range explicitly to include all data
+set format y "%'0.0f"
+set yrange [0:*]
+
+# Specify tab as the separator for the data file
+set datafile separator ","
+
+# Plot the data
+plot 'data_genre.csv' using 2:xtic(1) with boxes lc rgb "skyblue" notitle, \
+     '' using 0:2:(sprintf("%d", $2)) with labels offset 0,1 font ",12" notitle

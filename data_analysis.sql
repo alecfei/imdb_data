@@ -13,12 +13,27 @@ GROUP BY profession
 ORDER BY count DESC
 LIMIT 10;
 
--- 2. The age distribution of people who worked in the industry, excluding people who are still alive
+-- 2. The age distribution of people who worked in the industry
+SELECT full_name, age
+FROM (
+    SELECT full_name, 
+        CASE 
+            WHEN death_year IS NOT NULL THEN (death_year - birth_year)
+            WHEN death_year IS NULL THEN (EXTRACT(YEAR FROM CURRENT_DATE) - birth_year)
+        END AS age
+    FROM public.name_basics
+    WHERE birth_year IS NOT NULL
+) AS calculated_ages
+WHERE age <= 105
+	AND age > 0
+ORDER BY age;
+
+/* Excluding people who are still alive
 SELECT full_name, (death_year - birth_year) as age
 FROM public.name_basics
 WHERE (death_year - birth_year) IS NOT NULL
 ORDER BY age DESC
-
+*/
 
 -- 3. Top 10 most localisation productions in history
 WITH top_titles AS (

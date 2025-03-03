@@ -192,8 +192,18 @@ new tables
 </p>
 
 <p align="center">
+  <img alt="age_distribution_all" src="images/histogram_age_all.png">
+</p>
+
+**Comparing to the distribution excluding people who are still alive**
+
+<p align="center">
   <img alt="age_distribution" src="images/histogram_age.png">
 </p>
+
+Key takeaways:
+ - Most people who are currently working or have worked in the industry are between the ages of 40 and 50.
+ - The average lifespan of people who worked in the industry is around 80 years.
 
 <p style="font-size:16px">
   <strong>3. Localised counts </strong>
