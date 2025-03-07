@@ -134,13 +134,12 @@ set boxwidth 0.5
 # Enable grid for better readability
 set grid ytics
 
-# Set axis range explicitly to include all data
-set format y "%'0.0f"
-set yrange [0:*]
+# Set y-axis range explicitly to include all data
+#set yrange [0:*]
+set ytics auto
 
 # Specify tab as the separator for the data file
 set datafile separator ","
 
 # Plot the data
-plot 'data_genre.csv' using 2:xtic(1) with boxes lc rgb "skyblue" notitle, \
-     '' using 0:2:(sprintf("%d", $2)) with labels offset 0,1 font ",12" notitle
+plot 'data_genre.csv' using 2:xtic(1) with boxes lc rgb "skyblue" notitle

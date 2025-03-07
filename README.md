@@ -221,6 +221,14 @@ Key takeaways:
   <img alt="most_voted" src="images/barchart_mostvoted.png">
 </p>
 
+<p style="font-size:16px">
+  <strong>5. Genre counts of the productions </strong>
+</p>
+
+<p align="center">
+  <img alt="genre_count" src="images/barchart_genre.png">
+</p>
+
 ## References
 [IMDb Non-Commercial Datasets](https://developer.imdb.com/non-commercial-datasets/) \
 [Youplot](https://github.com/red-data-tools/YouPlot) \
